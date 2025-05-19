@@ -1,0 +1,1 @@
+Lombok has been used to minimize boilerplate codes for constructors, getters, setters, builders, etc. Since project involved multiple entities where the same pattern had to be repeated time and again, lombok helped to make the code much cleaner.
