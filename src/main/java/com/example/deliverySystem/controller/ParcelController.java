@@ -2,7 +2,6 @@ package com.example.deliverySystem.controller;
 
 import com.example.deliverySystem.dto.ParcelRequestDTO;
 import com.example.deliverySystem.dto.ParcelResponseDTO;
-import com.example.deliverySystem.entity.Parcel;
 import com.example.deliverySystem.service.ParcelService;
 
 import jakarta.validation.Valid;
