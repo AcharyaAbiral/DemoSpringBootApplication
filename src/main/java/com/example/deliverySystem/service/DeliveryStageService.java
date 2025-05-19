@@ -1,7 +1,7 @@
 package com.example.deliverySystem.service;
 
-import com.example.deliverySystem.CustomException.LocationNotFoundException;
-import com.example.deliverySystem.CustomException.ParcelNotFoundException;
+import com.example.deliverySystem.customException.LocationNotFoundException;
+import com.example.deliverySystem.customException.ParcelNotFoundException;
 import com.example.deliverySystem.dto.DeliveryStageDetailsByParcelIdResponseDTO;
 import com.example.deliverySystem.dto.DeliveryStageRequestDTO;
 import com.example.deliverySystem.dto.DeliveryStageResponseDTO;

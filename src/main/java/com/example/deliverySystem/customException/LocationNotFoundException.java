@@ -1,6 +1,4 @@
-package com.example.deliverySystem.CustomException;
-
-import com.example.deliverySystem.entity.Location;
+package com.example.deliverySystem.customException;
 
 public class LocationNotFoundException extends RuntimeException {
     public LocationNotFoundException()

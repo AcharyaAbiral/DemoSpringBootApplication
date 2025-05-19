@@ -1,7 +1,7 @@
 package com.example.deliverySystem.controllerAdvice;
 
-import com.example.deliverySystem.CustomException.LocationNotFoundException;
-import com.example.deliverySystem.CustomException.ParcelNotFoundException;
+import com.example.deliverySystem.customException.LocationNotFoundException;
+import com.example.deliverySystem.customException.ParcelNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

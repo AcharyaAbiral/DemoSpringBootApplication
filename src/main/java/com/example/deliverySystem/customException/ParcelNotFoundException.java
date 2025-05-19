@@ -1,4 +1,4 @@
-package com.example.deliverySystem.CustomException;
+package com.example.deliverySystem.customException;
 
 public class ParcelNotFoundException extends RuntimeException{
     public ParcelNotFoundException()
