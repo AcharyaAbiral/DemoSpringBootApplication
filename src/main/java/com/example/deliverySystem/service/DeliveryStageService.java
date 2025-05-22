@@ -1,10 +1,10 @@
 package com.example.deliverySystem.service;
 
-import com.example.deliverySystem.customException.LocationNotFoundException;
-import com.example.deliverySystem.customException.ParcelNotFoundException;
-import com.example.deliverySystem.dto.DeliveryStageDetailsByParcelIdResponseDTO;
-import com.example.deliverySystem.dto.DeliveryStageRequestDTO;
-import com.example.deliverySystem.dto.DeliveryStageResponseDTO;
+import com.example.deliverySystem.myCustomException.LocationNotFoundException;
+import com.example.deliverySystem.myCustomException.ParcelNotFoundException;
+import com.example.deliverySystem.dto.response.DeliveryStageDetailsByParcelIdResponseDTO;
+import com.example.deliverySystem.dto.request.DeliveryStageRequestDTO;
+import com.example.deliverySystem.dto.response.DeliveryStageResponseDTO;
 import com.example.deliverySystem.entity.DeliveryStage;
 import com.example.deliverySystem.entity.Location;
 import com.example.deliverySystem.entity.Parcel;
@@ -29,20 +29,17 @@ public class DeliveryStageService {
 
     public DeliveryStageResponseDTO insertDeliveryStage(DeliveryStageRequestDTO dto)
     {
-//        Parcel parcel=parcelRepository.findById(dto.getParcelId()).orElseThrow(()->new RuntimeException("Parcel not found"));
         Parcel parcel=parcelRepository.findById(dto.getParcelId()).orElseThrow(()->new ParcelNotFoundException("Parcel of id "+dto.getParcelId()+" does not exist."));
 
-//        Location sourceLocation=locationRepository.findById(dto.getSourceLocationId()).orElseThrow(()->new RuntimeException("source location not found"));
         Location sourceLocation=locationRepository.findById(dto.getSourceLocationId()).orElseThrow(()->new LocationNotFoundException("Location of id "+dto.getSourceLocationId()+" does not exist."));
 
-//        Location destinationLocation=locationRepository.findById(dto.getDestinationLocationId()).orElseThrow(()->new RuntimeException("destination location not found"));
         Location destinationLocation=locationRepository.findById(dto.getDestinationLocationId()).orElseThrow(()->new LocationNotFoundException("Location of id "+dto.getDestinationLocationId()+" does not exist."));
 
         DeliveryStage deliveryStage= DeliveryStageMapper.mapToDeliveryStage(dto,parcel,sourceLocation,destinationLocation);
         return DeliveryStageMapper.mapTODeliveryStageResponseDTO(deliveryStageRepository.save(deliveryStage));
     }
 
-    public List<DeliveryStageResponseDTO> retrieveAllDeliveryStage()
+    public List<DeliveryStageResponseDTO> retrieveAllDeliveryStages()
     {
         return deliveryStageRepository.findAll()
                 .stream()

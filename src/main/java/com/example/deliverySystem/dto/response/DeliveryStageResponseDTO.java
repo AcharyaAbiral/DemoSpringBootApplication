@@ -1,7 +1,5 @@
-package com.example.deliverySystem.dto;
+package com.example.deliverySystem.dto.response;
 
-import com.example.deliverySystem.entity.Location;
-import com.example.deliverySystem.entity.Parcel;
 import com.example.deliverySystem.utils.Status;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.deliverySystem.dto;
+package com.example.deliverySystem.dto.request;
 
 import com.example.deliverySystem.utils.Status;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +21,7 @@ public class DeliveryStageRequestDTO {
     @NotNull(message="destination_location_id must not be null")
     private UUID destinationLocationId;
 
-    @NotNull(message="status must not be blank")
+    @NotNull(message="status must not be null")
     private Status status;
 
 }

@@ -1,13 +1,11 @@
 package com.example.deliverySystem.controller;
 
-import com.example.deliverySystem.dto.DeliveryStageDetailsByParcelIdResponseDTO;
-import com.example.deliverySystem.dto.DeliveryStageRequestDTO;
-import com.example.deliverySystem.dto.DeliveryStageResponseDTO;
-import com.example.deliverySystem.entity.DeliveryStage;
+import com.example.deliverySystem.dto.response.DeliveryStageDetailsByParcelIdResponseDTO;
+import com.example.deliverySystem.dto.request.DeliveryStageRequestDTO;
+import com.example.deliverySystem.dto.response.DeliveryStageResponseDTO;
 import com.example.deliverySystem.service.DeliveryStageService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +20,9 @@ public class DeliveryStageController {
     private final DeliveryStageService deliveryStageService;
 
     @GetMapping
-    public ResponseEntity<List<DeliveryStageResponseDTO>> retrieveAllDeliveryStage()
+    public ResponseEntity<List<DeliveryStageResponseDTO>> retrieveAllDeliveryStages()
     {
-        return ResponseEntity.status(HttpStatus.OK).body(deliveryStageService.retrieveAllDeliveryStage());
+        return ResponseEntity.status(HttpStatus.OK).body(deliveryStageService.retrieveAllDeliveryStages());
     }
 
     @PostMapping
@@ -38,8 +36,4 @@ public class DeliveryStageController {
     {
         return ResponseEntity.status(HttpStatus.OK).body(deliveryStageService.retrieveDeliveryDetailsByParcelId(parcelId));
     }
-
-
-
-
 }
