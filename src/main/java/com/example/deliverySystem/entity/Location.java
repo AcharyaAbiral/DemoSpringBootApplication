@@ -1,6 +1,12 @@
 package com.example.deliverySystem.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -26,11 +32,20 @@ public class Location {
     @Setter(AccessLevel.NONE)
     private UUID id;
 
-    @Column(nullable=false,length = 255)
-    private String name;
+    @Column(nullable=false,length=255)
+    private String country;
+
+    @Column(nullable=false,length=255)
+    private String city;
+
+    @Column(nullable=false,length=255)
+    private String street;
 
     @Column(nullable = false,length = 255,unique = true)
-    private String contactEmail;
+    private String email;
+
+    @Column(nullable=false,length=10,unique=true)
+    private String phone;
 
     @OneToMany(mappedBy = "destinationLocation",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<DeliveryStage> destination=new ArrayList<>();

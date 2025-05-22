@@ -1,4 +1,4 @@
-package com.example.deliverySystem.dto;
+package com.example.deliverySystem.dto.response;
 
 import com.example.deliverySystem.utils.Status;
 import lombok.Builder;
