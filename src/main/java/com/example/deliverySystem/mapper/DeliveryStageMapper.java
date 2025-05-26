@@ -1,8 +1,8 @@
 package com.example.deliverySystem.mapper;
 
-import com.example.deliverySystem.dto.DeliveryStageDetailsByParcelIdResponseDTO;
-import com.example.deliverySystem.dto.DeliveryStageRequestDTO;
-import com.example.deliverySystem.dto.DeliveryStageResponseDTO;
+import com.example.deliverySystem.dto.response.DeliveryStageDetailsByParcelIdResponseDTO;
+import com.example.deliverySystem.dto.request.DeliveryStageRequestDTO;
+import com.example.deliverySystem.dto.response.DeliveryStageResponseDTO;
 import com.example.deliverySystem.entity.DeliveryStage;
 import com.example.deliverySystem.entity.Location;
 import com.example.deliverySystem.entity.Parcel;
@@ -32,15 +32,15 @@ public class DeliveryStageMapper {
     public static DeliveryStageDetailsByParcelIdResponseDTO mapToDeliveryStageDetailsByParcelIdResponseDTO(DeliveryStage deliveryStage)
     {
        return DeliveryStageDetailsByParcelIdResponseDTO.builder()
-               .sourceLocationName(deliveryStage.getSourceLocation().getName())
-               .destinationLocationName(deliveryStage.getDestinationLocation().getName())
+               .sourceLocationName(deliveryStage.getSourceLocation().getCountry())
+               .destinationLocationName(deliveryStage.getDestinationLocation().getCountry())
                .parcelID(deliveryStage.getParcel().getId())
                .parcelName(deliveryStage.getParcel().getName())
                .timeStamp(deliveryStage.getTimeStamp())
                .id(deliveryStage.getId())
-               .destinationLocationContactEmail(deliveryStage.getDestinationLocation().getContactEmail())
+               .destinationLocationContactEmail(deliveryStage.getDestinationLocation().getEmail())
                .status(deliveryStage.getDeliveryStatus())
-               .sourceLocationContactEmail(deliveryStage.getSourceLocation().getContactEmail())
+               .sourceLocationContactEmail(deliveryStage.getSourceLocation().getEmail())
                .build();
     }
 }

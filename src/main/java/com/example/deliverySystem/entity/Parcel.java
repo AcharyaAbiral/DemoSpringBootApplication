@@ -1,6 +1,16 @@
 package com.example.deliverySystem.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.PreUpdate;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -8,7 +18,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.Builder;
 import lombok.AccessLevel;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -18,7 +27,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
 @Getter
 @Setter
 @Builder
@@ -31,6 +39,9 @@ public class Parcel {
     @Column(nullable=false,length=255)
     private String name;
 
+    @Column(nullable=false,length=255)
+    private String category;
+
     @Column(nullable=false)
     private LocalDateTime creationTime;
 
@@ -39,6 +50,10 @@ public class Parcel {
 
     @OneToMany(mappedBy = "parcel", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<DeliveryStage> deliveryStages=new ArrayList<>();
+
+    @ManyToOne(optional=false)
+    @JoinColumn(name="user_id",nullable=false)
+    private User user;
 
     @PrePersist
     void onCreate()

@@ -1,4 +1,4 @@
-package com.example.deliverySystem.dto;
+package com.example.deliverySystem.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +15,7 @@ import java.util.UUID;
 public class ParcelResponseDTO {
     private UUID id;
     private String name;
+    private String category;
     private LocalDateTime creationTime;
     private LocalDateTime lastModified;
 }

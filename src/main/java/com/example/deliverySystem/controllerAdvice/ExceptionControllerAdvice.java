@@ -1,7 +1,7 @@
 package com.example.deliverySystem.controllerAdvice;
 
-import com.example.deliverySystem.customException.LocationNotFoundException;
-import com.example.deliverySystem.customException.ParcelNotFoundException;
+import com.example.deliverySystem.myCustomException.LocationNotFoundException;
+import com.example.deliverySystem.myCustomException.ParcelNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -35,7 +35,7 @@ public class ExceptionControllerAdvice {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<String> handleRuntimeExcpetion(RuntimeException ex)
+    public ResponseEntity<String> handleRuntimeException(RuntimeException ex)
     {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
